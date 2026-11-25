@@ -1,0 +1,12 @@
+name: Compose smoke and integration tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose up --build -d
+      - run: curl --retry 12 --retry-delay 2 --retry-all-errors --fail http://localhost:8000/api/session
+      - run: docker compose exec -T web python -m pytest -q
+      - if: always()
+        run: docker compose down -v

@@ -1,0 +1,11 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Календарь тренировок</title><link rel="stylesheet" href="/style.css">
+<header>На улице <span>Планировщик тренировок</span></header>
+<main><section><h1>Мои тренировки</h1><label>Показать за дату <input id="filter" type="date"></label><button id="all">Все даты</button><div id="list"></div></section>
+<section><h2>Новая тренировка</h2><form id="form">
+<label>Вид тренировки <select name="sport"><option>Пробежка</option><option>Велопоездка</option><option>Ходьба</option></select></label>
+<label>Город <select name="city"></select></label>
+<label>Начало, МСК <input name="starts" type="datetime-local" required></label>
+<label>Длительность, мин <input name="minutes" type="number" min="15" max="240" value="60" required></label>
+<fieldset><legend>Подходящая погода</legend><label>От, °C <input name="low" type="number" value="-5" required></label><label>До, °C <input name="high" type="number" value="25" required></label>
+<label>Вероятность осадков до, % <input name="rain" type="number" value="30" min="0" max="100" required></label><label>Ветер до, км/ч <input name="wind" type="number" value="20" min="0" max="250" required></label></fieldset>
+<button class="primary">Добавить тренировку</button></form></section></main><p id="notice" role="status"></p><script src="/app.js"></script></html>
